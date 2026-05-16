@@ -216,45 +216,11 @@ const INDEX_HTML = `<!DOCTYPE html>
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      min-height: 100dvh;
-    }
-
-    @media (min-width: 640px) {
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #0f172a; /* Slate 900 for desktop background */
-      }
-      .mobile-wrapper {
-        width: 390px;
-        height: 844px;
-        max-height: 95dvh;
-        border: 12px solid #000;
-        border-radius: 40px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        overflow-y: auto;
-        overflow-x: hidden;
-        position: relative;
-        transform: translateZ(0); /* Constrain position: fixed elements to this wrapper */
-        background: linear-gradient(180deg, #f5e0d8 0%, #fae8eb 50%, #fdf6f7 100%);
-      }
-      .sky-container {
-        position: fixed; /* Bound inside wrapper's transform */
-      }
-    }
-
-    @media (max-width: 639px) {
-      body {
-        background: linear-gradient(180deg, #f5e0d8 0%, #fae8eb 50%, #fdf6f7 100%);
-      }
-      .mobile-wrapper {
-        width: 100%;
-        min-height: 100dvh;
-      }
+      min-height: 100vh;
     }
 
     body {
+      background: linear-gradient(180deg, #f5e0d8 0%, #fae8eb 50%, #fdf6f7 100%);
       font-family: 'Cormorant Garamond', serif;
       color: #8c5a4d;
     }
@@ -633,7 +599,6 @@ const INDEX_HTML = `<!DOCTYPE html>
   </style>
 </head>
 <body>
-<div class="mobile-wrapper">
 
   <!-- Perpetual Heaven Sent Sky -->
   <div class="sky-container" id="sky">
@@ -1376,7 +1341,6 @@ const INDEX_HTML = `<!DOCTYPE html>
       resetFlow();
     }
   </script>
-</div>
 </body>
 </html>
 `;
@@ -1511,10 +1475,10 @@ export default function App() {
 
   if (DEPLOYED_GAS_URL !== "" && !window.location.search.includes("setup")) {
     return (
-      <div className="w-full h-[100dvh] overflow-hidden bg-slate-900">
+      <div className="w-full h-screen overflow-hidden bg-white relative">
         <iframe
           srcDoc={finalHTML}
-          className="w-full h-[100dvh] border-none"
+          className="w-full h-full border-none absolute inset-0"
           title="Baby Shower RSVP App"
           sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
         />
