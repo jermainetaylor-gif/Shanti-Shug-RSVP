@@ -1,0 +1,1 @@
+fetch('https://script.google.com/macros/s/AKfycbwXzcQYNlnBXD8Efkp1i9wwU10cLXQzVX2vHPxJSgCpbBoCxGJkXoH0Ji65UIe8S-HJpg/exec?action=checkPhone&phone=5551234567').then(async r => console.log(r.status, await r.text())).catch(console.error);
