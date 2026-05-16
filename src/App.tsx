@@ -1511,13 +1511,7 @@ export default function App() {
 
   if (DEPLOYED_GAS_URL !== "" && !window.location.search.includes("setup")) {
     return (
-      <div className="w-full h-[100dvh] overflow-hidden bg-slate-900 group relative">
-        <a 
-          href="?setup=true" 
-          className="absolute top-4 right-4 z-50 bg-white/20 hover:bg-white/40 text-black px-4 py-2 rounded-full text-xs font-bold transition opacity-0 group-hover:opacity-100 backdrop-blur-md"
-        >
-          Setup Menu
-        </a>
+      <div className="w-full h-[100dvh] overflow-hidden bg-slate-900">
         <iframe
           srcDoc={finalHTML}
           className="w-full h-[100dvh] border-none"
