@@ -12,7 +12,7 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 
 const CODE_GS = `// Code.gs
-// Baby Shower RSVP - Server Side REST API
+// Shanti & Shug's Baby Shower - Server Side REST API
 
 function doGet(e) {
   try {
@@ -22,7 +22,7 @@ function doGet(e) {
       // Serve the HTML UI when someone visits the link directly
       return HtmlService.createHtmlOutputFromFile('Index')
         .addMetaTag('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
-        .setTitle('Baby Shower RSVP')
+        .setTitle("Shanti & Shug's Baby Shower")
         .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
     }
     
@@ -1475,11 +1475,18 @@ export default function App() {
 
   if (DEPLOYED_GAS_URL !== "" && !window.location.search.includes("setup")) {
     return (
-      <div className="w-full h-screen overflow-hidden bg-white relative">
+      <div className="w-full h-screen overflow-hidden bg-white relative group">
+        <a 
+          href="?setup=true" 
+          className="absolute bottom-4 left-4 z-50 text-slate-300 hover:text-slate-600 transition-colors opacity-0 group-hover:opacity-100 p-2"
+          title="Open Setup Menu"
+        >
+          <Wand2 size={16} />
+        </a>
         <iframe
           srcDoc={finalHTML}
           className="w-full h-full border-none absolute inset-0"
-          title="Baby Shower RSVP App"
+          title="Shanti & Shug's Baby Shower App"
           sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
         />
       </div>
@@ -1517,7 +1524,7 @@ export default function App() {
       {/* Header */}
       <header className="mb-8 text-center max-w-2xl">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
-          Baby Shower RSVP Dashboard
+          Shanti & Shug's Baby Shower Dashboard
         </h1>
         <p className="text-slate-600 text-lg">
           Your complete Google Apps Script project for managing RSVPs seamlessly
